@@ -1,0 +1,16 @@
+---
+title: "预估评估指标"
+date: 2022-11-01T14:58:00+08:00
+draft: false
+---
+
+在信息检索中，相关性可以分为多个级别，高度相关的文档比部分相关的文档更有价值，其在评估中应该赋予更大的权值。信息检索的常用排序质量评估标准有：平均准确率(MAP, Mean Average Precision)、AUC(Area Under ROC Curve)、DCG(Discounted Cumulative Gain)、NDCG(Normalized Discounted Cumulative Gain)。
+
+# 平均准确率(MAP, Mean Average Precision)
+理解MAP 可以由它的三个部分来理解：P、AP、MAP。
+P（Precision）指的是返回的结果中相关的文档占的比例。正确率只是考虑了返回结果中相关文档的个数，没有考虑文档之间的序。对一个搜索引擎或推荐系统而言返回的结果必然是有序的，而且越相关的文档排的越靠前越好，于是有了平均准确率AP的概念。
+
+$AP@N=\sum_{n=0}^\infty \frac{p(k)}{min(m, n)}$
+
+其中，m是相关的文档，n是返回的文档数。
+单个主题的 AP是每篇相关文档检索后的准确率的平均值。 MAP是每个主题的平均准确率的平均值，反映了系统在全部相关文档上性能的单值指标。系统检索出来的相关文档越靠前(rank 越高)，MAP就越高。如果系统没有返回相关文档，则准确率为0。

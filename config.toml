@@ -1,0 +1,9 @@
+baseURL = 'http://example.org/'
+
+languageCode = 'zh-cn'
+defaultContentLanguage = 'cn'
+
+theme = "FixIt"
+
+# publish blog default directory
+publishDir = "docs"
